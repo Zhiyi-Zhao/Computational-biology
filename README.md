@@ -61,7 +61,10 @@ An intron is a nucleotide sequence within a gene in eukaryote. It is a noncoding
 - Frameshift
 Frameshift is a shifting of the reading frame caused by insert nuclides not devided by 3. Frameshift mutation is a genetic mutation caused by indels (insertions or deletions) of a number of nucleotides in a DNA sequence that is not divisible by three. 
 
-
+Comment of the assignment:
+Use the SMS website to find the ORF corresponding to the known peptide on the known DNA sequence. Noting:
+- Continuous peptides do not equal continuous DNA sequences; they may be located in different ORFs and separated by introns.
+- Knowing which DNA chain the ORF is located on means you don't have to worry about the ORF on the other chain.
 
 | Theme | Exercise | Tool |Introduction |Used for | Type of data | Notes | Extension |
 |-------|----------|------|-----|----------|--------------|-------|-----------|
