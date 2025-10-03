@@ -7,6 +7,11 @@ This course uses Jupyter for assignments, which uses two common cell types:
 Code Cells: Used to write Python code, which generates output when run.
 Markdown Cells: Used to write captions, formulas, images, tables, and more. It supports Markdown syntax and can directly render LaTeX mathematical formulas.
 
+⭐⭐⭐**Course**:
+- Biochemistry
+- Molecular biology
+- Evolutionaty biology
+
 ## Python
 This lesson will only use simple Python code to perform formula calculations. If you don't want to learn, you can also do the calculations manually.
 
@@ -42,15 +47,25 @@ Mitochondrial and Chloroplast genome are also present in single copy.\
 Size of the genomes is variable and does not correlate with complexity of living beings. And small and simple does not mean harmless.
 
 - Gene
+A gene is a programmable unit that can give rise to a multitude of products: protein and RNA products through (alternative) splicing and trans-splicing
+
+## Assignment
+- Reading Frame(RF), Open Reading Frame(ORF) and Coding Sequence(CDS)
+  - A **Reading Frame** is how a genetic sequence is read during a translation process.
+  - An **Open Reading Frame** is the part of a reading frame that has the potential to code for a protein or peptide and consists of a continuous stretch of codons that do not contain a stop codon (usually UAA, UAG or UGA). Note that in this case, the ORF will be interrupted with intervening sequences or introns.
+  - The **Coding Sequence**, is the portion of a gene's DNA or RNA, composed **only of exons**, that codes for protein. The region is bounded at the 5' end with a start codon and at the 3' end with a stopcodon.
+ 
+- Intron
+An intron is a nucleotide sequence within a gene in eukaryote. It is a noncoding sequence. During the final maturation of the RNA product, the introns are removed by splicing.
+
+- Frameshift
+Frameshift is a shifting of the reading frame caused by insert nuclides not devided by 3. Frameshift mutation is a genetic mutation caused by indels (insertions or deletions) of a number of nucleotides in a DNA sequence that is not divisible by three. 
 
 
 
-
-
-
-| Theme | Exercise | Tool | Available from | Used for | Type of data | Notes | Extension |
-|-------|----------|------|----------------|----------|--------------|-------|-----------|
-|Buiding Blocks of Life|1A|3|4|5|6|7|8|
+| Theme | Exercise | Tool |Introduction |Used for | Type of data | Notes | Extension |
+|-------|----------|------|-----|----------|--------------|-------|-----------|
+|Buiding Blocks of Life|1A|[Sequence Manipulation Suite](https://www.bioinformatics.org/sms2/index.html)|SMS is for generating, formatting, and analyzing short DNA and protein sequences|Find the ORF|DNA/RNA/Protein sequence||Format conversion,sequence analysis,sequence figures|
 
 
 
