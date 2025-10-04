@@ -74,7 +74,7 @@ Remember 20 amino acids!
 
 
 # 2A Genome Coverage
-
+## Lectures
 Coverage: average number of times any given base in the genome is sequenced.
 <center>
 
@@ -175,7 +175,7 @@ Comment of the assignment:
 - Calculate H,N50,NG50
 
 # 2B Genome Assembly & Annotation
-
+## Lectures
 **Course Aim**
 - The differences between mapping and assembly:
   Mapping = compare to a known genome
@@ -218,8 +218,9 @@ OLC(Overlap-layout-consensus):
 A graph is constructed using the (k-1) base overlaps between k-mers.
 Then, an Eulerian path is found within the graph to reconstruct the genome.
 
-
-
+## Assignment
+Comment of the assignment:\
+Use Bowtie2 to mapping 
 
 
 
@@ -239,7 +240,9 @@ Then, an Eulerian path is found within the graph to reconstruct the genome.
 | Theme | Exercise | Tool | Introduction | Used for (in the course) | Type of data | Notes |
 |---|---|---|---|---|---|---|
 | Building Blocks of Life | 1A | [Sequence Manipulation Suite](https://www.bioinformatics.org/sms2/index.html) | SMS is for generating, formatting, and analyzing short DNA and protein sequences | Find the ORF | DNA/RNA/Protein sequence | Format conversion, sequence analysis, sequence figures |
-|  | 2A | GALAXY | Galaxy is an open source, web-based platform for data intensive biomedical research | Genome Assembly (SPAdes), line/word/character count | FASTQ | — |
+| The OMICS | 2A | GALAXY | Galaxy is an open source, web-based platform for data intensive biomedical research | Genome Assembly (SPAdes), line/word/character count | FASTQ | — |
+| The OMICS | 2B | [Bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#getting-started-with-bowtie-2-lambda-phage-example) | Bowtie2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences | Map reads against reference genome | FASTQ and ref_genome | in GALAXY environment |
+| The OMICS | 2B | [Jbrowse]((https://jbrowse.org/jb2/) |A genome browser that can run on the web,desktop, or embedded in application | display various genetic information on website and easy to share with others |  |  |
 
 
 
