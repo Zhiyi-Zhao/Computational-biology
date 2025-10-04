@@ -174,11 +174,45 @@ Comment of the assignment:
 - Use [SPAdes](https://usegalaxy.org/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fnml%2Fspades%2Fspades%2F4.2.0%2Bgalaxy0&version=latest) for genome assembly
 - Calculate H,N50,NG50
 
+# 2B Genome Assembly & Annotation
 
+**Course Aim**
+- The differences between mapping and assembly:
+  Mapping = compare to a known genome
+  Assembly = build the genome from scratch
+- The general strategy for genome assembly
+  1. Find overlaps among reads
+  2. Build a graph to visualize the connections
+  3. Make the graph simpler
+  4. Walk through the graph
+- The specific approaches(Greedy overlapping) for genome assembly
+- Compare the structure of contigs and scaffolds
+  Scaffold is made by the contigs placed in correct orientation and correct order, with the approximately correct distance sometimes including repeats.
+- Define the scope of structural and functional annotations
+  - Structural annotation: is there a gene? Three common methods:
+    1. use staristical models to search for specific sequences that indicate the presence of a gene nearby, or statistial properties of the protein-coding sequence itself.
+    2. 
 
+[**SCS solution and Greedy overlapping**](https://www.cs.jhu.edu/~langmea/resources/lecture_notes/assembly_scs.pdf)
 
+**Greedy overlapping based assembly**: Use heuristic approach to solve problems: find the best local choice at each step
+1. calculate pairwise alignment of all reads vs all reads
+2. Find the best matching read pair
+3. Merge pair
+4. Repeat until cannot continue
 
+Detailed steps of finding the contigs:
+1. Use dynamic programming to make a string comparison between the reads and obtaining the optimal alignment
+2. Look for significant overlap allowing for a few mutations and deletions
+3. Create an overlapping graph where every read is a vertex connected by an edge in case of significant overlap.
+4. Sort edges by weight
+5. Clean the redundancy
 
+[de Bruijn graph](https://www.cs.jhu.edu/~langmea/resources/lecture_notes/assembly_dbg.pdf)
+
+**de Bruijn graph**:The de Bruijn graph transforms the overlap problem into a path problem:
+A graph is constructed using the (k-1) base overlaps between k-mers.
+Then, an Eulerian path is found within the graph to reconstruct the genome.
 
 
 
