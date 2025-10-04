@@ -191,7 +191,11 @@ Comment of the assignment:
 - Define the scope of structural and functional annotations
   - Structural annotation: is there a gene? Three common methods:
     1. use staristical models to search for specific sequences that indicate the presence of a gene nearby, or statistial properties of the protein-coding sequence itself.
-    2. 
+    2. Evidence-based approach: sequence mRNA
+    3. Homology-based approach: align genome with known genes or proteins to find orthologs
+  - Functional annotation: what's the function of the sequence?
+    1. From protein to Gene:Experimental function of known proteins → mapped to corresponding genes
+    2. Predict function from homology protein:If a gene has a high similarity to a known protein sequence, it is inferred that it may have the same or similar function.
 
 [**SCS solution and Greedy overlapping**](https://www.cs.jhu.edu/~langmea/resources/lecture_notes/assembly_scs.pdf)
 
@@ -201,7 +205,7 @@ Comment of the assignment:
 3. Merge pair
 4. Repeat until cannot continue
 
-Detailed steps of finding the contigs:
+OLC(Overlap-layout-consensus):
 1. Use dynamic programming to make a string comparison between the reads and obtaining the optimal alignment
 2. Look for significant overlap allowing for a few mutations and deletions
 3. Create an overlapping graph where every read is a vertex connected by an edge in case of significant overlap.
