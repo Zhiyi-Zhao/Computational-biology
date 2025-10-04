@@ -37,7 +37,7 @@ You can use LaTeX to write formulas in your daily homework, or you can use LaTeX
 
 Protein is more abundant in creatures, people also first sequenced protein by Edmann degradation method. But now, DNA sequence is becoming cheaper and cheaper, the data for DNA sequence is also increasing in a fast way.
 
-The [DNA sequencing method](https://www.geneious.com/guides/introduction-to-dna-sequencing), we will learn how to analyze sequencing data in the coming course, but its also recommended to learn where the data come from.\
+The [DNA sequencing method](https://www.geneious.com/guides/introduction-to-dna-sequencing), we will learn how to analyze sequencing data in the coming course, but its also recommended to learn where the data come from.
 
 - Genome\
 In classical genetics, the genome of a diploid organism refers to a full set of chromosomes or genes in a gamete. A regular somatic cell contains two full sets of genomes(and a mitochondrial genome)\
@@ -45,7 +45,7 @@ In haploid organisms, including bacteria, archaea and viruses, a cell contains o
 Mitochondrial and Chloroplast genome are also present in single copy.\
 Size of the genomes is variable and does not correlate with complexity of living beings. And small and simple does not mean harmless.
 
-- Gene
+- Gene\
 A gene is a programmable unit that can give rise to a multitude of products: protein and RNA products through (alternative) splicing and trans-splicing
 
 ## Assignment
@@ -54,10 +54,10 @@ A gene is a programmable unit that can give rise to a multitude of products: pro
   - An **Open Reading Frame** is the part of a reading frame that has the potential to code for a protein or peptide and consists of a continuous stretch of codons that do not contain a stop codon (usually UAA, UAG or UGA). Note that in this case, the ORF will be interrupted with intervening sequences or introns.
   - The **Coding Sequence**, is the portion of a gene's DNA or RNA, composed **only of exons**, that codes for protein. The region is bounded at the 5' end with a start codon and at the 3' end with a stopcodon.
  
-- Intron
+- Intron\
 An intron is a nucleotide sequence within a gene in eukaryote. It is a noncoding sequence. During the final maturation of the RNA product, the introns are removed by splicing.
 
-- Frameshift
+- Frameshift\
 Frameshift is a shifting of the reading frame caused by insert nuclides not devided by 3. Frameshift mutation is a genetic mutation caused by indels (insertions or deletions) of a number of nucleotides in a DNA sequence that is not divisible by three. 
 
 Comment of the assignment:
@@ -104,18 +104,75 @@ The probability of each read covering that site is a constant: $p =\frac{ReadLen
 
 H = number of contigs = NP(0) = $Ne^{-a}$
 Compares to the calculation fomula of Gaps, the only difference is N(Number of reads) and G(Genome size)
+But this is just calculate number, don't have any biology meaning, in real sequencing, some region is hard to sequence or assembly, like the highly repeat sequence. And the H can less than 1, but actually, it's not possible because creatures at least have 1 contig.
+
+## Assignment
+
+**Important Concepts**:
+- Shotgun sequencing: The technology used to sequence complete genomes. Shotgun sequencing involves randomly breaking up or shredding a genomic or large DNA sequence into many small fragments (hence shotgun), sequence them and then use a computer to reassemble the original sequence by finding regions of overlap.
+- Sequence read: The output of the sequencing process. A read refers to a string of nucleotides. This string is presented in FASTA or FASTQ format.
+- Contig: When two or more sequence reads show a region of overlap, they can be merged into one single larger string. This merging by using overlap is the assembly process and the resulting string is called a contig and usually presented in fasta format.
+- Scaffold: When the order of the contigs is known they can be connected in one long sequence with gaps in between the contigs. The length of the gaps can be estimated or are sometimes set with a fixed length. These ordered contigs are called scaffolds or supercontigs.
+Paired-end or long_read data information or a reference genome is often used for scaffolding.
+- N50: N50 is a statistic that defines the quality of an assembly. An assembly is a set of contigs that together represent a genome. Given a set of contigs, each with its own sequence length, N50 is defined as the shortest sequence length at 50% of the genome. A simple example of the calculation is found here.
+- NG50：N50 is calculated in the context of the assembly size rather than the genome size. Therefore, comparisons of N50 values derived from assemblies of significantly different lengths are usually not informative, even if for the same genome.
+To address this, the authors of the Assemblathon competition came up with a new measure called NG50. The NG50 statistic is the same as N50 except that it is 50% of the known or estimated genome size that must be of the NG50 length or longer. This allows for meaningful comparisons between different assemblies. In the typical case that the assembly size is not more than the genome size, the NG50 statistic will not be more than the N50 statistic.
+- Coverage: This is a container term for a number of similar terms. Given a file with many sequence reads the average coverage can be calculated from the length of the genome (G), the number of reads in the file (N), and the average read length (L) of the reads, following the Lander-Waterman equation (N × L / G). In shotgun sequencing a high coverage is essential in order to find overlap between reads and repress sequence read errors as a result of the sequencing process which relates to the actual coverage at a particular position in a sequence.
 
 
+**FASTA File**\
+The FASTA format is a text-based format for representing either nucleotide sequences or amino acid (protein) sequences, in which nucleotides or amino acids are represented using single-letter codes.
+A sequence begins with a greater-than character (">") followed by a description of the sequence (all in a single line). The lines immediately following the description line are the sequence representation, with one letter per amino acid or nucleic acid, and are typically no more than 80 characters in length.
 
+For example:
 
+\>MCHU - Calmodulin - Human, rabbit, bovine, rat, and chicken
+MADQLTEEQIAEFKEAFSLFDKDGDGTITTKELGTVMRSLGQNPTEAELQDMINEVDADGNGTID
+FPEFLTMMARKMKDTDSEEEIREAFRVFDKDGNGYISAAELRHVMTNLGEKLTDEEVDEMIREA
+DIDGDGQVNYEEFVQMMTAK*
 
+**FASTQ File**\
+FASTQ File has four line-separated fields per sequence:
 
+Field 1 begins with a '@' character and is followed by a sequence identifier and an optional description (like a FASTA title line). Field 2 is the raw sequence letters. Field 3 begins with a '+' character and is optionally followed by the same sequence identifier (and any description) again. Field 4 encodes the quality values for the sequence in Field 2, and must contain the same number of symbols as letters in the sequence. A FASTQ file containing a single sequence might look like this:
 
+@SEQ_ID\
+GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT\
++\
+!''((((+))%%%++)(%%%%).1-+''))**55CCF>>>>>>CCCCCCC65
 
+They have some difference on format: FASTA begins with ">", FASTQ begins with "@". And FASTQ file has "+" to link the coming line and has the information of quality value. FASTA files are more flexible, allowing to have the sequence in multiple lines while in FASTQ formats the sequence is restricted to only one line. And FASTQ file can give more information about the sequence, they have the record of quality. Therefore they also bigger in the size of files when they have same length of sequence.
 
+More information about [FASTQ and Illumina](https://knowledge.illumina.com/software/general/software-general-reference_material-list/000002211)\
+More information about [FASTQ and Q-score](https://en.wikipedia.org/wiki/FASTQ_format)
 
+Transfer FASTQ into FASTA or combine FASTA and QUAL into FASTQ -- [GALAXY Platform](https://usegalaxy.org/) : Tools--FASTA/FASTQ\
 
+**Pair-end sequence**\
+The header of each sequence contains pertinent information about the read.\
+'/1' at the end of the header stands for the forward read '/2' for the reverse read:\
+Forward > @NC_000913.3:320000-380000-2388/1\
+Reverse > @NC_000913.3:320000-380000-2388/2
 
+**GALAXY Platform**\
+[Galaxy](https://usegalaxy.org/) is a web-based, open-source bioinformatics analysis platform jointly developed by Pennsylvania State University and Johns Hopkins University. As an open platform, Galaxy integrates a large number of bioinformatics analysis tools, providing researchers with an easy-to-use bioinformatics analysis interface that **requires no programming knowledge**.
+
+Galaxy Functions:
+- Genomics: Gene assembly, variant detection, gene annotation, etc.
+- Transcriptomics: RNA-seq analysis, differential expression analysis, etc.
+- Proteomics: Mass spectrometry data analysis, protein identification and quantification, etc.
+- Metabolomics: Metabolic pathway analysis, metabolite identification, etc.
+- Systems biology: network construction and analysis, functional enrichment analysis, etc.
+
+**Length of reads**:\
+The sequencer model, the version of the sequencing chemistry and the number of cycles.\
+The specific model of the instrument used (for example, HIseq, NovaSeq or MiSeq) will determine the length of reads produced.\
+Illumina is a second generation technology, with a sequencing chemistry referred to as Sequencing by synthesis. Here, clusters of identical molecules are sequenced simultaneously. Each chemistry cycle adds a tagged base to the end of a sequence in a cluster followed by an imaging step where the newly added base is read. Sometimes not one base binds and thus gets out of sync with the other molecules in the cluster. More cycles therefore results in lower resolution, limiting the length of the reads that can be done.
+
+Comment of the assignment:
+- Use [GALAXY](https://usegalaxy.org/) to count the sequence number and the length of sequence([Line/Word/Character count](https://usegalaxy.org/?tool_id=wc_gnu&version=latest))
+- Use [SPAdes](https://usegalaxy.org/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fnml%2Fspades%2Fspades%2F4.2.0%2Bgalaxy0&version=latest) for genome assembly
+- Calculate H,N50,NG50
 
 
 
@@ -141,9 +198,10 @@ Compares to the calculation fomula of Gaps, the only difference is N(Number of r
 
 
 # List of all the bioinformatics tools
-| Theme | Exercise | Tool |Introduction |Used for | Type of data | Notes | Extension |
-|-------|----------|------|-----|----------|--------------|-------|-----------|
-|Buiding Blocks of Life|1A|[Sequence Manipulation Suite](https://www.bioinformatics.org/sms2/index.html)|SMS is for generating, formatting, and analyzing short DNA and protein sequences|Find the ORF|DNA/RNA/Protein sequence||Format conversion,sequence analysis,sequence figures|
+| Theme | Exercise | Tool | Introduction | Used for (in the course) | Type of data | Notes |
+|---|---|---|---|---|---|---|
+| Building Blocks of Life | 1A | [Sequence Manipulation Suite](https://www.bioinformatics.org/sms2/index.html) | SMS is for generating, formatting, and analyzing short DNA and protein sequences | Find the ORF | DNA/RNA/Protein sequence | Format conversion, sequence analysis, sequence figures |
+|  | 2A | GALAXY | Galaxy is an open source, web-based platform for data intensive biomedical research | Genome Assembly (SPAdes), line/word/character count | FASTQ | — |
 
 
 
