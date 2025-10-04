@@ -262,8 +262,42 @@ Then use SMART to analyse our interested sequence, to predict the protein struct
  
 # 3B Transcriptomics Quantification and differential expression(DE) analysis
 ## Lecture
+- Normalizing for sequenceing depth:\
+  **CPM**\
+  **C**ount **P**er **M**ilion of mapped reads: counts scaled for total number of reads, relative measure for reads count where the total amount of reads is set to 1 milion to avoid samll numbers:
+  <center>
+ 
+  $$CPM =10^{6} \frac{ReadsPerGene}{TotalReads}$$
 
-- 
+  </center> 
+
+  **RPKM/FPKM**\
+  **R**eads **P**er **K**ilo base of transcript per **M**illion mapped reads
+    <center>
+
+    $$RPKM =10^{6} \times \frac{ReadsPerGene}{TotalReads} \times 10^{3} \times \frac{1}{GeneLength} = 10^{9} \times\frac{ReadsPerGene}{GeneLength \times TotalReads} $$
+
+    </center> 
+  As to paired-end sequence, RPKM = 2 * FPKM
+
+  **TPM**(Recommended, we can use this to compare both inside and between samples)\
+  <center>
+
+    $$TPM =10^{6} \times \frac{ReadsPerGene}{GeneLength} \times  \frac{1}{TotalLengthCorrectedCounts} = 10^{6} \times\frac{\frac{ReadsPerGene}{GeneLength}}{\sum\frac{ReadsPerGene}{GeneLength}} $$
+
+    </center> 
+    
+ Different Expression:   t-test
+ Volcano plot and cluster analysis, Go analysis(Gene Ontology) provides a system for hierarchically classifying genes or gene products into terms organized in a graph structure
+
+## Assignment
+Analyze the transcript results, brife analyse which is expressed which not, and see is there difference between different expriment group.\
+Use Goprofiler to see the different expression gene and its function.\
+Use microarray to see common expression, by using SPELL website we can see the gene different expression under different condition in different published article.
+
+  
+
+
 
 
 
@@ -277,8 +311,11 @@ Then use SMART to analyse our interested sequence, to predict the protein struct
 | Building Blocks of Life | 1A | [Sequence Manipulation Suite](https://www.bioinformatics.org/sms2/index.html) | SMS is for generating, formatting, and analyzing short DNA and protein sequences | Find the ORF | DNA/RNA/Protein sequence | Format conversion, sequence analysis, sequence figures |
 | The OMICS | 2A | GALAXY | Galaxy is an open source, web-based platform for data intensive biomedical research | Genome Assembly (SPAdes), line/word/character count | FASTQ | — |
 | The OMICS | 2B | [Bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#getting-started-with-bowtie-2-lambda-phage-example) | Bowtie2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences | Map reads against reference genome | FASTQ and ref_genome | in GALAXY environment |
-| The OMICS | 2B | [Jbrowse]((https://jbrowse.org/jb2/) |A genome browser that can run on the web,desktop, or embedded in application | display various genetic information on website and easy to share with others |  |  |
+| The OMICS | 2B | [Jbrowse](https://jbrowse.org/jb2/) |A genome browser that can run on the web,desktop, or embedded in application | display various genetic information on website and easy to share with others |  |  |
 | The OMICS | 3A | [Ensembl](https://www.ensembl.org/index.html) |A public and open project providing access to genomes, annotations, tools and methods | here we can download transcipts data of yeast etc. |  |  |
 | The OMICS | 3A | [yeastgenome](https://www.yeastgenome.org/genomesnapshot) |Saccharomyces cerevisiae Genome Snapshot | here we can check the information of yeast genome |  |  |
 | The OMICS | 3A | [IGV](https://igv.org/app/) | A browser for visualize| use the IGV browser to visualize transcript result | .bam |  |
 | The OMICS | 3A | [SMART](https://smart.embl.de/) |Protein prediction| predict protein structure from DNA sequence | .bam |  |
+| The OMICS | 3B | [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) |performs functional enrichment analysis, also known as over-representation analysis (ORA) or gene set enrichment analysis| see the gene which have different expression and its function | |  |
+| The OMICS | 3B | [SPELL](https://spell.yeastgenome.org/) |SPELL (Serial Pattern of Expression Levels Locator) is a query-driven search engine for large gene expression microarray compendia| see the gene different expression under different condition in different published article | |  |
+
