@@ -95,7 +95,7 @@ $$P(n) = \frac{a^n e^{-a}}{n!}$$
 
 By this fomula: P(0) = the probability of the gaps = $e^{-a}$, so for a genome of size G, the number of nucleotides in the gaps is: $P(0)G = e^{-a}G$
 
-- Why Possion distribute and Why lambda=coverage:
+- Why Possion distribute and Why lambda=coverage:\
   Why does sequencing follow a Poisson distribution?
 
 In next-generation sequencing, we have a genome of length L (e.g., a 3 Gb human genome).The sequencer randomly selects a DNA fragment from the library and generates a read.The position of each read on the genome is approximately random and independent.Therefore, for a given site on the genome:
@@ -177,8 +177,8 @@ Comment of the assignment:
 # 2B Genome Assembly & Annotation
 ## Lectures
 **Course Aim**
-- The differences between mapping and assembly:
-  Mapping = compare to a known genome
+- The differences between mapping and assembly:\
+  Mapping = compare to a known genome\
   Assembly = build the genome from scratch
 - The general strategy for genome assembly
   1. Find overlaps among reads
@@ -186,7 +186,7 @@ Comment of the assignment:
   3. Make the graph simpler
   4. Walk through the graph
 - The specific approaches(Greedy overlapping) for genome assembly
-- Compare the structure of contigs and scaffolds
+- Compare the structure of contigs and scaffolds\
   Scaffold is made by the contigs placed in correct orientation and correct order, with the approximately correct distance sometimes including repeats.
 - Define the scope of structural and functional annotations
   - Structural annotation: is there a gene? Three common methods:
@@ -214,8 +214,8 @@ OLC(Overlap-layout-consensus):
 
 [de Bruijn graph](https://www.cs.jhu.edu/~langmea/resources/lecture_notes/assembly_dbg.pdf)
 
-**de Bruijn graph**:The de Bruijn graph transforms the overlap problem into a path problem:
-A graph is constructed using the (k-1) base overlaps between k-mers.
+**de Bruijn graph**:The de Bruijn graph transforms the overlap problem into a path problem:\
+A graph is constructed using the (k-1) base overlaps between k-mers.\
 Then, an Eulerian path is found within the graph to reconstruct the genome.
 
 ## Assignment
@@ -223,13 +223,47 @@ Comment of the assignment:\
 Use Bowtie2 to mapping the reads(with ref_genome). Then use Jbrowse to visualize the results of alignment.\
 We found Single Nucleotide Polymorphism (SNP), gaps(may means deletion or mutation on this site compare to ref_genome), 
 
+# 3A Transcript analysis
 
+**Course Aim:**
+- types of RNA and main characteristics:\
+  messenger RNA(main), code for proteins\
+  transfer RNA(main), central to protein synthesis as adaptors between mRNA and amino acids\
+  ribosomal RNA(main), form the basic structure of the ribosome and catalyze protein synthesis \
+  microRNA\
+  short interfering RNA\
+  small nucleolar RNA\
+  long non-coding RNA\
+  piwi-interacting RNA etc.
+- various processing steps involved between transcription and protein expression:\
+  1. Pre-mRNA is spliced to form mature mRNA, capped and polyadenylated
+  2. In eukaryotes, one gene can result in different mRNA transcripts; in bacteria, one mRNA can translate into multiple proteins
+  3. Translation
+- The use and limitation of measuring mRNA expression to understand biological process, including the influence of technical and biological noise:
+  1. Usage: mRNA and protein often shows same trends, so we can use it for conditions comparison and time series comparison
+  2. Many reason can cause difference: different genes,isoforms,tissues,developmental stages,cell cycle,circadian rhythm, individual cells,environment, and the results of mRNA synthesis and mRNA decay
+- Explain the main technologies to measure transcript concentrations and list their specific advantages and disadvantages and main use:
+  1. RT-qPCR: Low throughput
+  2. Microarrays: pros: highly standardized, relatively cheap, samll data size--easy to handle; cons: gene sequence should be known, no position-specific information, can't detect new isoforms, not very quantitative: low dynamic range
+  3. RNA-seq: untargeted, works for species without a sequenced genome, can identify alternatively spliced transcripts, can identify SNPAs in transcripts, high dynamic range(quantitative), no strand specificity
+- Identify the challenges in mapping RNA-seq reads to reference genomes and describe the use of transcriptome assembly\
+  challenges: RNA reads will span an intron on the genome; one exon can be part of multiple isoforms
 
+**Pseudo-alignment**
+It compares the **k-mers** in the reads with the **k-mers** set of the reference transcriptome to determine which transcripts each read is compatible with, without calculating its precise alignment position on the transcript.\
+Why pseudo-alignment is faster:\
+It eliminates base-level alignment and searching across splice junctions, instead using *k-mer hash matching* to search directly on the spliced ​​transcriptome, significantly reducing computational effort.
 
+## Assignment
+Comment of the assignment:\
+Use Ensembl website download transcript data of yeast, analyze the mean length, from forward strand or reverse strand;\
+Use IGV website to visualize transcript results, we can search a specific gene, from the transcript data, we can know that how many exons and introns we have. And we can have a brife idea of the level of the gene expression. In some region, there's no gene, but still have some expression, the reason can be: an unannotated gene, read-through of the upstream gene (transcription stop signal ignored), other forms of expression (enhancers can cause local transcription), contamination with genomic DNA. And we can find the alternative splicing. And we can use this tool to copy interest sequence.\
+Then use SMART to analyse our interested sequence, to predict the protein structure.
+ 
+# 3B Transcriptomics Quantification and differential expression(DE) analysis
+## Lecture
 
-
-
-
+- 
 
 
 
@@ -244,7 +278,7 @@ We found Single Nucleotide Polymorphism (SNP), gaps(may means deletion or mutati
 | The OMICS | 2A | GALAXY | Galaxy is an open source, web-based platform for data intensive biomedical research | Genome Assembly (SPAdes), line/word/character count | FASTQ | — |
 | The OMICS | 2B | [Bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#getting-started-with-bowtie-2-lambda-phage-example) | Bowtie2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences | Map reads against reference genome | FASTQ and ref_genome | in GALAXY environment |
 | The OMICS | 2B | [Jbrowse]((https://jbrowse.org/jb2/) |A genome browser that can run on the web,desktop, or embedded in application | display various genetic information on website and easy to share with others |  |  |
-
-
-
-
+| The OMICS | 3A | [Ensembl](https://www.ensembl.org/index.html) |A public and open project providing access to genomes, annotations, tools and methods | here we can download transcipts data of yeast etc. |  |  |
+| The OMICS | 3A | [yeastgenome](https://www.yeastgenome.org/genomesnapshot) |Saccharomyces cerevisiae Genome Snapshot | here we can check the information of yeast genome |  |  |
+| The OMICS | 3A | [IGV](https://igv.org/app/) | A browser for visualize| use the IGV browser to visualize transcript result | .bam |  |
+| The OMICS | 3A | [SMART](https://smart.embl.de/) |Protein prediction| predict protein structure from DNA sequence | .bam |  |
