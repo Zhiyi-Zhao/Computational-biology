@@ -220,7 +220,8 @@ Then, an Eulerian path is found within the graph to reconstruct the genome.
 
 ## Assignment
 Comment of the assignment:\
-Use Bowtie2 to mapping 
+Use Bowtie2 to mapping the reads(with ref_genome). Then use Jbrowse to visualize the results of alignment.\
+We found Single Nucleotide Polymorphism (SNP), gaps(may means deletion or mutation on this site compare to ref_genome), 
 
 
 
