@@ -33,8 +33,7 @@ You can use LaTeX to write formulas in your daily homework, or you can use LaTeX
 # 1A Molecular biology primer: from gene to protein
 ## Lecture
 - Central dogma\
-[Central dogma](https://www.genome.gov/genetics-glossary/Central-Dogma). The central dogma of molecular biology is a theory stating that genetic information flows only in one direction, from DNA, to RNA, to protein, or RNA directly to protein. Now its already expand like the picture below.
-![Central Dogma](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Crick%27s_1958_central_dogma.svg/1024px-Crick%27s_1958_central_dogma.svg.png)
+[Central dogma](https://www.genome.gov/genetics-glossary/Central-Dogma). The central dogma of molecular biology is a theory stating that genetic information flows only in one direction, from DNA, to RNA, to protein, or RNA directly to protein.
 
 Protein is more abundant in creatures, people also first sequenced protein by Edmann degradation method. But now, DNA sequence is becoming cheaper and cheaper, the data for DNA sequence is also increasing in a fast way.
 
@@ -66,10 +65,79 @@ Use the [SMS website](https://www.bioinformatics.org/sms2/#:~:text=The%20Sequenc
 - Continuous peptides do not equal continuous DNA sequences; they may be located in different ORFs and separated by introns.
 - Knowing which DNA chain the ORF is located on means you don't have to worry about the ORF on the other chain.
 
-# 1B
+# 1B Amino Acids
+
+Only understand amino acids, can we understand protein. What happend in enzymes' action site, how secondary structure.
 
 Remember 20 amino acids!
-![Table of 20 amino acids]()
+![Table of 20 amino acids](/AAKT.PNG)
+
+
+# 2A Genome Coverage
+
+Coverage: average number of times any given base in the genome is sequenced.
+<center>
+
+$$Coverage(a) = \frac{N \times L}{G}$$
+
+</center>
+
+- Number of reads -- N
+- Read Length -- L
+- Genome length -- G
+
+Given coverage **a**, then the probability that base is sequenced n times or **a base not being sequenced(Gap)**:
+<center>
+
+$$P(n) = \frac{a^n e^{-a}}{n!}$$
+
+</center>
+
+By this fomula: P(0) = the probability of the gaps = $e^{-a}$, so for a genome of size G, the number of nucleotides in the gaps is: $P(0)G = e^{-a}G$
+
+- Why Possion distribute and Why lambda=coverage:
+  Why does sequencing follow a Poisson distribution?
+
+In next-generation sequencing, we have a genome of length L (e.g., a 3 Gb human genome).The sequencer randomly selects a DNA fragment from the library and generates a read.The position of each read on the genome is approximately random and independent.Therefore, for a given site on the genome:
+
+The probability of each read covering that site is a constant: $p =\frac{ReadLength}{GenomeLength}$, if there are a total of 𝑁, then the coverage of this site **X ~ Binomial distribution**, When 𝑁 is large, p is small, and 𝑁𝑝=𝜆 (read length) is fixed, the binomial distribution approximates the Poisson Distribution.
+
+H = number of contigs = NP(0) = $Ne^{-a}$
+Compares to the calculation fomula of Gaps, the only difference is N(Number of reads) and G(Genome size)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # List of all the bioinformatics tools
