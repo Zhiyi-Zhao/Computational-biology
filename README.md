@@ -334,15 +334,36 @@ How to assemble identifed peptides into a list of proteins -- 1. grouping peptid
 
 ## Assignment
 Comment of the assignment:\
+Use OMSSA to see the result of MS, calculate the FDR, check the result of peptide hit
 
+MS-MS have some limitation: The reason why these peptides were not discovered is basically that ionisation was too difficult. Peptides which are easier to measure are the peptides which are easily ionised. The ionization is a parameter highly influenced by the chemistry of the peptide (e.g. composition, length). Protein modification can also influent the result, so, we need to expand the search scope to take protein modifications into account. Hence, the false discovery rate goes up because the search space increased substantially.
 
+# 5A Databases
+## Lecture
+- International databases:
+  DNA/RNA: GenBnak for genetic sequences, SRA for next NGS data;\
+  Protein: Uniprot for sequence information, PDB for structures;
+  Metabolism: KEGG, BioCyc
 
+## Assignment
+**Eenzyme Code** consists of the letters "EC" followed by four numbers separated by periods. Those numbers represent a progressively finer classification of the enzyme. Preliminary EC numbers exist and have an 'n' as part of the fourth (serial) digit (e.g. EC 3.5.1.n3).
 
+At NCBI you can start text searches which allows you to retrieve molecular biology data and bibliographic citations from the NCBI's integrated databases.
 
+These include:
 
+DNA sequences from GenBank, EMBL, and DDBJ
+Protein sequences from SwissProt, PIR, PRF, PDB, and translated protein sequences from the DNA sequence databases.
+Genome and chromosome mapping data.
+Three-dimensional protein structures derived from PDB, and incorporated into NCBI's Molecular Modelling Database (MMDB)
+PubMed bibliographic database containing citations for nearly 9 million biomedical articles from the National Library of Medicine's MEDLINE and pre-MEDLINE databases.
+It has some useful features. For example:
 
+Most of its records are linked to other records, both within a given database (such as PubMed) and between databases (related information shown at the right side of the screen).
+Suggested Filters to refine your search
+The sequence databases are linked to the Medline database such that it is possible to move from paper to sequence or vice versa seamlessly.
 
-
+Comment of the assignment:\
 
 
 
