@@ -371,18 +371,55 @@ Use PDB database to see the structure of the protein, like how many chains are c
 
 # 5B Public resourses for genetic data & the need for data FAIRification
 ## Lecture
+Nucleotide sequence database: DDBJ, EMBL, Genbank\
+Uniprot: is made by two part: 1. Swiss-prot: the manually curated section; 2. TeEMBL: the automatically annotated section. this databse is focused on sequence data and functional annotaions\
+PDB: focused on 3D structural data of proteins, nucleic acid and complexes
 
-
-
+FAIR data: scientific data linked to machine readable metadata: Findable, Accessible, Interoperable, Reusable
 
 ## Assignment
+[checklist](https://www.ebi.ac.uk/ena/browser/checklists) for how to make FAIR data
 Comment of the assignment:\
+Taking the data of diabetic patients as an example, the content of FAIRdata is shown.
 
-
+# 6A Substitution Patterns & Matrices
 ## Lecture
+**Course Aim:**
+1. List reasons for why sequence alignments are done;
+2. Compare the Jukes-Cantor and Kimura models for nucleotide substitution;\
+   Jukes-Cantor:    $$d = \frac{-3}{4} \times ln(1-\frac{4}{3} \times D)$$, every mutation pair have same score \
+   Kimura: take substitutions and transversions into consideration
+3. Calculate log-adds ratios for amino acid substitutions;\
+   $$log_2(\frac{Pr(x,y|R)}{Pr(x,y|U)}) = \sum log_2(\frac{q_{x,y}}{p_{x}p_{y}})$$
+4. Describe why and how amino acid substitution matrices have been constructed\
+**BLOSUM vs. PAM Matrices**
+
+| Feature                        | BLOSUM62 (Default) | Other BLOSUM Matrices | PAM Matrices |
+|--------------------------------|--------------------|----------------------|--------------|
+| **Basis of Calculation**       | Derived from conserved blocks of protein sequences | BLOSUMX is derived from alignments with at least X% sequence identity | Based on evolutionary models of accepted mutations |
+| **Best for**                   | Medium sequence divergence (~62% identity) | Higher X (e.g., BLOSUM80) for closely related sequences; Lower X (e.g., BLOSUM45) for distant sequences | Evolutionary distant sequences |
+| **High Number (BLOSUM80 / PAM10)** | Detects close homologs | Sensitive for closely related sequences | Better for short evolutionary distances |
+| **Low Number (BLOSUM45 / PAM250)** | Detects distant homologs | Good for highly divergent sequences | Suitable for long evolutionary distances |
+| **Evolutionary Assumptions**   | Observed substitutions (not inferred from models) | More aggressive or conservative depending on X | Models mutations over time |   
+
+**Key Differences**
+
+1. **BLOSUM is Data-Driven, While PAM is Evolutionary**  
+   - BLOSUM matrices are built from actual conserved regions, making them empirical.  
+   - PAM matrices are based on a Markov model of accepted mutations over time.  
+
+2. **BLOSUM is Better for Detecting Functional Similarities**  
+   - Since BLOSUM is derived from conserved regions, it’s better at detecting proteins with similar functions.  
+
+3. **PAM is Better for Studying Evolutionary Relationships**  
+   - PAM matrices predict how sequences evolve over time, making them useful for phylogenetics.  
+
+** Sequence alignments: comparisons of how each nucleotide or amino acid in two or more strings of DNA, RNA, or protein sequences with another 
+
 
 ## Assignment
 Comment of the assignment:\
+Link to a detailed calculation example
 
 ## Lecture
 
