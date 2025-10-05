@@ -433,14 +433,37 @@ Link to a detailed calculation example
 2. Summarize the four steps of the BLAST algorithm;
    - List: 1. split sequence into k-mers; 2. calculate alignment score and keep only k-mers above certain threshold
    - Scan: 1. scan database for exact matches to each word from list step; 2. extend each hit in both directions calculate raw score until score drops a certain amount below highest score; 3. allows gaps to be filled as long as gap penalyies do not drop total score below a certain score
-   - Report Raw scores (S) are converted to bit scores to allow comparisons between different searches, $S' = \frac{lambda \times S - ln(K)}{ln(2)}$l 
-5. Explain how changing BLAST parameters influence the algorithm and output;
+   - Report Raw scores (S) are converted to bit scores to allow comparisons between different searches, $S' = \frac{\lambda S - \ln(K)}{\ln(2)}$l 
+3. Explain how changing BLAST parameters influence the algorithm and output;
    We can change the databse, targeted organism and protein matrix
-7. Evaluate BLAST.
+4. Evaluate BLAST.
 
 
 ## Assignment
 Comment of the assignment:\
+Use BLAST in NCBI and learned how to evaluate the results and how to calculate these score.
+
+The raw score (*S*) of an alignment depends on the number of matches/mismatches, the number of gaps and the length of the gaps, and can be calculated with the following formula:
+
+$$
+S = \sum (M_{i,j}) - cO - dG
+$$
+
+where $M_{i,j}$ is the sum of the scores for each match or mismatch (from the corresponding nucleotide or amino acid scoring matrices), *c* is the number of gaps, *O* is the penalty for the existence of a gap, *d* is the total length of gaps and *G* is the per-residue penalty for extending the gap.
+
+Determine the **E-value** of the top hit that you found in **Question 4** with the following formula and show your calculations
+
+$$
+E = K \cdot m \cdot n \cdot e^{-\lambda S}
+$$
+
+
+Where *m* is the effective length of query and *n* is the effective length of database (i.e. sum of all sequences in the database). 
+
+
+Like &lambda; and *K*, *m* and *n* are shown in the *Search summary* table.
+
+Note the size of *n*. This is why a heuristic algorithm like BLAST is necessary!
 
 ## Lecture
 
