@@ -433,7 +433,7 @@ Link to a detailed calculation example
 2. Summarize the four steps of the BLAST algorithm;
    - List: 1. split sequence into k-mers; 2. calculate alignment score and keep only k-mers above certain threshold
    - Scan: 1. scan database for exact matches to each word from list step; 2. extend each hit in both directions calculate raw score until score drops a certain amount below highest score; 3. allows gaps to be filled as long as gap penalyies do not drop total score below a certain score
-   - Report Raw scores (S) are converted to bit scores to allow comparisons between different searches, $S' = \frac{\lambda S - \ln(K)}{\ln(2)}$l 
+   - Report Raw scores (S) are converted to bit scores to allow comparisons between different searches, $S' = \frac{\lambda \times S - \ln(K)}{\ln(2)}$ 
 3. Explain how changing BLAST parameters influence the algorithm and output;
    We can change the databse, targeted organism and protein matrix
 4. Evaluate BLAST.
@@ -470,11 +470,30 @@ Note the size of *n*. This is why a heuristic algorithm like BLAST is necessary!
 ## Assignment
 Comment of the assignment:\
 
-
+# 7 Protein Domains
 ## Lecture
+**Domains** are distinct structural units of proteins that fold independently and have a hydrophobic core, they're the most basic functional units of proteins that are required for their activity.\
+**Motifs** are found as patterns(specific or degenerate), which can define a domain, but also can be characteristic of a subset of a domain and found in DNA
+
+Three general methods for domain identification:
+- Patterns: highly conserved sequence motifs that are domain-unique
+- Profiles: domain-specific position specific scoring matrices
+- Hidden Markov Models(HMMs): probability-based models
+
+Profiles, position-specific scoring matrices (PSSMs):\
+Table of position-specific scores and gap penalties based on a multiple sequence aligment. Specific matrix for each position in multiple sequence alignment. PSSM is a dynamic, domain-specific matrix
+
+PSI-BLAST(Position-Specific Iterative BLAST):\
+While standard BLAST uses a fixed substitution matrix (such as BLOSUM62), PSI-BLAST automatically creates a position-specific scoring matrix (PSSM) for your query sequence and continuously updates it over multiple iterations. This allows starting with closely related homologs, it gradually captures more distantly related proteins (those with lower sequence similarity but related functions).
+
+Profile Hidden Markov Models(HMMs):
+The Profile HMM is a probabilistic model specifically designed to identify patterns in protein or DNA sequences and simulate evolutionary changes (substitutions, insertions, and deletions) that occur in a set of homologous sequences. In other words, while a PSSM only tells us "which amino acid is common at each position," an HMM can also tell us "what is likely to occur (insertions, deletions, or matches) from one position to the next in the sequence."
 
 ## Assignment
 Comment of the assignment:\
+Annotate two sequences using: SMART, PROSITE, Pfam/Interpro\
+PSI-BLAST with RNAse 3 domain and check multiple sequence alignment for 'pattern'
+
 
 ## Lecture
 
