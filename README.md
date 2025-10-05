@@ -291,11 +291,57 @@ Then use SMART to analyse our interested sequence, to predict the protein struct
  Volcano plot and cluster analysis, Go analysis(Gene Ontology) provides a system for hierarchically classifying genes or gene products into terms organized in a graph structure
 
 ## Assignment
+Comment of the assignment:\
 Analyze the transcript results, brife analyse which is expressed which not, and see is there difference between different expriment group.\
 Use Goprofiler to see the different expression gene and its function.\
 Use microarray to see common expression, by using SPELL website we can see the gene different expression under different condition in different published article.
 
+# 4A MS-based proteomics  
+## Lecture
+- Why do we study proteins?
+  1. It can tell us what happens now, what enzymes are currently active, which signals are being transduced.
+  2. Transcriptomics sometimes have poor correlation with proteomics.
+  3. Genomics can only tell what's the potential
+- What is proteomics?
+  The study of all proteins present in a sample at a given time.
+- What are the challenges in analysing proteins?
+- How do we do it?
+- How can we manually give meaning to the spectra?
   
+
+## Assignment
+Comment of the assignment:\
+By using MAmine3, we can find information like the elution time, the different isotopic peaks for the same peptide.\
+We use MS-Viewer to compare the peptide with high score and low score.\
+Calculate the peptide by hand
+
+# 4B Identification and quantification of proteins in complex samples
+**Course Aim:**
+- Understanding how mass spectrometry data are analysed to produce protein indentifications
+- Discover how proteins are quantified by mass spectrometry-based proteomics methods\
+  Label free quantitation\
+  Metabolic labeling\
+  Isotopic or isobaric tags
+- Reflect on how the quantity of the entity (proteins) is inferred by quantifying its components (peptides)
+ 
+**FDR**： measures the error rate associated with a collection of PSMs:
+
+$$
+FDR(S_T) = \frac{N_d(S_T)}{N_t(S_T)}
+$$
+
+How to assemble identifed peptides into a list of proteins -- 1. grouping peptides; 2. grouping the protein side; 3.find the parsimony protein groouping solution
+
+## Assignment
+Comment of the assignment:\
+
+
+
+
+
+
+
+
 
 
 
@@ -318,4 +364,6 @@ Use microarray to see common expression, by using SPELL website we can see the g
 | The OMICS | 3A | [SMART](https://smart.embl.de/) |Protein prediction| predict protein structure from DNA sequence | .bam |  |
 | The OMICS | 3B | [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) |performs functional enrichment analysis, also known as over-representation analysis (ORA) or gene set enrichment analysis| see the gene which have different expression and its function | |  |
 | The OMICS | 3B | [SPELL](https://spell.yeastgenome.org/) |SPELL (Serial Pattern of Expression Levels Locator) is a query-driven search engine for large gene expression microarray compendia| see the gene different expression under different condition in different published article | |  |
-
+| The OMICS | 4A | [MZmine3](https://github.com/mmattano/mzmine3) |mzmine is an open-source and platform-independent software for mass spectrometry (MS) data processing and visualization| | | in nuvolos environment |
+| The OMICS | 4A | [MSViewer](https://prospector.ucsf.edu/prospector/cgi-bin/msform.cgi?form=msviewer) |Proteomics Data Visualization and Comparison| | | |
+| The OMICS | 4B | [OMMSA](https://ssb-omssa.containers.wur.nl/) | The Open Mass Spectrometry Search Algorithm [OMSSA] is an efficient search engine for identifying MS/MS peptide spectra by searching libraries| | | |
