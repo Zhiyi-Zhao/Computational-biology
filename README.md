@@ -364,12 +364,92 @@ Suggested Filters to refine your search
 The sequence databases are linked to the Medline database such that it is possible to move from paper to sequence or vice versa seamlessly.
 
 Comment of the assignment:\
+Use Uniprot to search for a protein and see its linked desease in Disease & Variants, and download sequence data;\
+Use NCBI to search a protein, and check the linked article in PubMed, we can also check the size of the protein and the function, and the site on the genome, and the intron and exon of a gene;\
+Use KEGG to see how many pathway is related to the interested protein.\
+Use PDB database to see the structure of the protein, like how many chains are contained in a specify protein.
+
+# 5B Public resourses for genetic data & the need for data FAIRification
+## Lecture
 
 
 
 
+## Assignment
+Comment of the assignment:\
 
 
+## Lecture
+
+## Assignment
+Comment of the assignment:\
+
+## Lecture
+
+## Assignment
+Comment of the assignment:\
+
+## Lecture
+
+## Assignment
+Comment of the assignment:\
+
+
+## Lecture
+
+## Assignment
+Comment of the assignment:\
+
+## Lecture
+
+## Assignment
+Comment of the assignment:\
+
+## Lecture
+
+## Assignment
+Comment of the assignment:\
+
+## Lecture
+
+## Assignment
+Comment of the assignment:\
+
+## Lecture
+
+## Assignment
+Comment of the assignment:\
+
+## Lecture
+
+## Assignment
+Comment of the assignment:\
+
+## Lecture
+
+## Assignment
+Comment of the assignment:\
+
+
+
+## Lecture
+
+## Assignment
+Comment of the assignment:\
+
+
+
+
+## Lecture
+
+## Assignment
+Comment of the assignment:\
+
+
+## Lecture
+
+## Assignment
+Comment of the assignment:\
 
 
 # List of all the bioinformatics tools
