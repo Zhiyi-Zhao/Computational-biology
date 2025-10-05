@@ -421,7 +421,23 @@ Taking the data of diabetic patients as an example, the content of FAIRdata is s
 Comment of the assignment:\
 Link to a detailed calculation example
 
+# 6B BLAST(Basic Local Alignment Search Tool)
 ## Lecture
+**Learning goals**\
+1. List the different tyoes of BLAST;
+   - blastn n vs n
+   - blastp p vs p
+   - blastx n(trans) vs p
+   - tblastn p vs n(trans)
+   - tblastx n(trans) vs n(trans)  
+2. Summarize the four steps of the BLAST algorithm;
+   - List: 1. split sequence into k-mers; 2. calculate alignment score and keep only k-mers above certain threshold
+   - Scan: 1. scan database for exact matches to each word from list step; 2. extend each hit in both directions calculate raw score until score drops a certain amount below highest score; 3. allows gaps to be filled as long as gap penalyies do not drop total score below a certain score
+   - Report Raw scores (S) are converted to bit scores to allow comparisons between different searches, $S' = \frac{lambda \times S - ln(K)}{ln(2)}$l 
+5. Explain how changing BLAST parameters influence the algorithm and output;
+   We can change the databse, targeted organism and protein matrix
+7. Evaluate BLAST.
+
 
 ## Assignment
 Comment of the assignment:\
