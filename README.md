@@ -495,6 +495,8 @@ Annotate two sequences using: SMART, PROSITE, Pfam/Interpro\
 PSI-BLAST with RNAse 3 domain and check multiple sequence alignment for 'pattern'
 
 
+
+
 ## Lecture
 
 ## Assignment
@@ -563,3 +565,4 @@ Comment of the assignment:\
 | The OMICS | 4A | [MZmine3](https://github.com/mmattano/mzmine3) |mzmine is an open-source and platform-independent software for mass spectrometry (MS) data processing and visualization| | | in nuvolos environment |
 | The OMICS | 4A | [MSViewer](https://prospector.ucsf.edu/prospector/cgi-bin/msform.cgi?form=msviewer) |Proteomics Data Visualization and Comparison| | | |
 | The OMICS | 4B | [OMMSA](https://ssb-omssa.containers.wur.nl/) | The Open Mass Spectrometry Search Algorithm [OMSSA] is an efficient search engine for identifying MS/MS peptide spectra by searching libraries| | | |
+| Sequence-defined properties | 7 | [SMART](https://smart.embl.de/) | An online resource for the identification and annotation of protein domains and the analysis of protein domain architectures| | | |
